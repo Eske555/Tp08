@@ -31,7 +31,47 @@ public class Juego
         ContadorNroPreguntaActual = 0;
         PreguntaActual = null;
         ListaPreguntas = null;
-        ListaRespuestas = null;
+        ListaRespuestas = null; 
     }
 
+    public void CargarPartida(string username, int dificultad, int categoria)
+    {
+        InicializarJuego();
+        this.username = username;
+        ListaPreguntas = BD.ObtenerPreguntas(dificultad, categoria);
+        ContadorNroPreguntaActual = 0;
+    }
+    public Preguntas ObtenerProximaPregunta()
+    {
+        if (ListaPreguntas == null || ContadorNroPreguntaActual >= ListaPreguntas.Count)
+        {
+            return null;
+        }
+        else
+        {
+            PreguntaActual = ListaPreguntas[ContadorNroPreguntaActual];
+            ContadorNroPreguntaActual++;
+            return PreguntaActual;
+        }
+    }
+    public List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
+    {
+        ListaRespuestas = BD.ObtenerRespuestas(idPregunta);
+        return ListaRespuestas;
+    }
+    public Respuestas VerificarRespuesta(int idRespuesta)
+    {
+       if (correcta)
+       {
+         PuntajeActual = PuntajeActual + 10;
+         CantidadPreguntasCorrectas++;
+       }
+       else {
+
+       }
+        ContadorNroPreguntaActual++;
+        PreguntaActual = ListaPreguntas[idPregunta];
+        return correcta;
+    }
+    
 }
