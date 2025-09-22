@@ -1,0 +1,43 @@
+<h2>Configurar Juego</h2>
+
+<form asp-action="Comenzar" method="get" onsubmit="return validarConfig();">
+    <label>Usuario:</label>
+    <input type="text" name="username" id="username" required />
+
+    <br />
+
+    <label>Dificultad:</label>
+    <select name="dificultad" id="dificultad" required>
+        <option value="-1">Todas</option>
+        <option value="1">Fácil</option>
+        <option value="2">Difícil</option>
+    </select>
+
+    <br />
+
+    <label>Categoría:</label>
+    <select name="categoria" id="categoria" required>
+        <option value="-1">Todas</option>
+        <option value="1">Historia</option>
+        <option value="2">Ciencia</option>
+    </select>
+
+    <br />
+    <button type="submit">Jugar</button>
+</form>
+<div id="resultado"></div>
+
+<script>
+    function validarConfig() {
+        const nombre = document.getElementById("username").value.trim();
+        const dif = document.getElementById("dificultad").value;
+        const cat = document.getElementById("categoria").value;
+
+        if (!nombre || dif === "" || cat === "") {
+            mostrarResultado("Debes completar todos los campos.");
+            return false;
+        }
+        mostrarResultado(`Jugador: ${nombre} - Dif: ${dif} - Cat: ${cat}`);
+        return true;
+    }
+</script>

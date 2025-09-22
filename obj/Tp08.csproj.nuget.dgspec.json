@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\2025\\PROG\\Tp08\\Tp08.csproj": {}
+    "C:\\Users\\49374119\\Downloads\\Tp08\\Tp08.csproj": {}
   },
   "projects": {
-    "Z:\\2025\\PROG\\Tp08\\Tp08.csproj": {
+    "C:\\Users\\49374119\\Downloads\\Tp08\\Tp08.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\2025\\PROG\\Tp08\\Tp08.csproj",
+        "projectUniqueName": "C:\\Users\\49374119\\Downloads\\Tp08\\Tp08.csproj",
         "projectName": "Tp08",
-        "projectPath": "Z:\\2025\\PROG\\Tp08\\Tp08.csproj",
+        "projectPath": "C:\\Users\\49374119\\Downloads\\Tp08\\Tp08.csproj",
         "packagesPath": "C:\\Users\\49374119\\.nuget\\packages\\",
-        "outputPath": "Z:\\2025\\PROG\\Tp08\\obj\\",
+        "outputPath": "C:\\Users\\49374119\\Downloads\\Tp08\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -56,6 +56,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[6.1.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
             }
           },
           "imports": [

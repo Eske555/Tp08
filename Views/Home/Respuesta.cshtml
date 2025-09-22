@@ -1,0 +1,11 @@
+@if (ViewBag.Correcta)
+{
+    <h2>✅ Correcto!</h2>
+}
+else
+{
+    <h2>❌ Incorrecto!</h2>
+    <p>La respuesta correcta era: @ViewBag.RespuestaCorrecta</p>
+}
+
+<a href="@Url.Action("Jugar", "Juego")">Siguiente</a>

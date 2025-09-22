@@ -1,0 +1,23 @@
+<h2>Juego</h2>
+<p>Jugador: @ViewBag.Username</p>
+<p>Puntaje: @ViewBag.Puntaje</p>
+<p>Pregunta @ViewBag.NumPregunta: @ViewBag.Pregunta.Enunciado</p>
+
+@if (!string.IsNullOrEmpty(ViewBag.Pregunta.Imagen))
+{
+    <img src="@ViewBag.Pregunta.Imagen" alt="Imagen de la pregunta" />
+}
+
+<form asp-action="VerificarRespuesta" method="post" id="formJuego">
+    @foreach (var r in ViewBag.Pregunta.Respuestas)
+    {
+        <button type="submit" name="respuestaId" value="@r.Id">
+            @r.Texto
+            @if (!string.IsNullOrEmpty(r.Imagen))
+            {
+                <img src="@r.Imagen" alt="Respuesta img" />
+            }
+        </button>
+    }
+</form>
+<div id="resultado"></div>

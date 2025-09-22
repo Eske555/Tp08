@@ -1,77 +1,95 @@
-using Microsoft.Data.SqlClient;
-using Dapper;
 using System.Collections.Generic;
 using System.Linq;
 
 public class Juego
 {
-    private string username;
+    private string Username;
     private int PuntajeActual;
     private int CantidadPreguntasCorrectas;
     private int ContadorNroPreguntaActual;
     private Preguntas PreguntaActual;
-    private List<Preguntas> ListaPreguntas;
-    private List<Respuestas> ListaRespuestas;
-
-    public Juego()
-    {
-        string username;
-        int PuntajeActual;
-        int CantidadPreguntasCorrectas;
-        int ContadorNroPreguntaActual;
-        Preguntas PreguntaActual = new Preguntas();
-        List<Preguntas> ListaPreguntas = new List<Preguntas>();
-        List<Respuestas> ListaRespuestas = new List<Respuestas>();
-    }
+    private List<Preguntas> ListaPreguntas = new List<Preguntas>();
+    private List<Respuestas> ListaRespuestas = new List<Respuestas>();
     private void InicializarJuego()
     {
-        username = "";
+        Username = "";
         PuntajeActual = 0;
         CantidadPreguntasCorrectas = 0;
         ContadorNroPreguntaActual = 0;
-        PreguntaActual = null;
-        ListaPreguntas = null;
-        ListaRespuestas = null; 
+        PreguntaActual = new Preguntas();
+        ListaPreguntas = new List<Preguntas>();
+        ListaRespuestas = new List<Respuestas>();
+    }
+
+    public List<Categorias> ObtenerCategorias()
+    {
+        return BD.ObtenerCategorias();
+    }
+
+    public List<Dificultades> ObtenerDificultades()
+    {
+        return BD.ObtenerDificultades();
     }
 
     public void CargarPartida(string username, int dificultad, int categoria)
     {
         InicializarJuego();
-        this.username = username;
+        Username = username;
         ListaPreguntas = BD.ObtenerPreguntas(dificultad, categoria);
         ContadorNroPreguntaActual = 0;
+
+        if (ListaPreguntas.Count > 0)
+        {
+            PreguntaActual = ListaPreguntas[0];
+            ListaRespuestas = BD.ObtenerRespuestas(PreguntaActual.IdPregunta);
+        }
     }
+
     public Preguntas ObtenerProximaPregunta()
     {
         if (ListaPreguntas == null || ContadorNroPreguntaActual >= ListaPreguntas.Count)
-        {
             return null;
-        }
-        else
-        {
-            PreguntaActual = ListaPreguntas[ContadorNroPreguntaActual];
-            ContadorNroPreguntaActual++;
-            return PreguntaActual;
-        }
+
+        PreguntaActual = ListaPreguntas[ContadorNroPreguntaActual];
+        return PreguntaActual;
     }
+
     public List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
     {
         ListaRespuestas = BD.ObtenerRespuestas(idPregunta);
         return ListaRespuestas;
     }
-    public Respuestas VerificarRespuesta(int idRespuesta)
-    {
-       if (correcta)
-       {
-         PuntajeActual = PuntajeActual + 10;
-         CantidadPreguntasCorrectas++;
-       }
-       else {
 
-       }
+    public bool VerificarRespuesta(int idRespuesta)
+    {
+        if (ListaRespuestas == null) return false;
+
+        var respuesta = ListaRespuestas.FirstOrDefault(r => r.IdRespuesta == idRespuesta);
+
+        if (respuesta == null) return false;
+
+        bool esCorrecta = respuesta.Correcta;
+
+        if (esCorrecta)
+        {
+            PuntajeActual += 10;
+            CantidadPreguntasCorrectas++;
+        }
+
         ContadorNroPreguntaActual++;
-        PreguntaActual = ListaPreguntas[idPregunta];
-        return correcta;
+
+        if (ListaPreguntas != null && ContadorNroPreguntaActual < ListaPreguntas.Count)
+        {
+            PreguntaActual = ListaPreguntas[ContadorNroPreguntaActual];
+        }
+        else
+        {
+            PreguntaActual = null;
+        }
+
+        return esCorrecta;
     }
-    
+    public string GetUsername() => Username;
+    public int GetPuntaje() => PuntajeActual;
+    public int GetNumeroPregunta() => ContadorNroPreguntaActual + 1;
 }
