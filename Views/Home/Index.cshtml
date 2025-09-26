@@ -1,5 +1,14 @@
-﻿<div class="text-center">
-    <img src="~/images/logo.png" alt="Logo del Juego" style="width:200px;" />
-    <br />
-    <a class="btn btn-primary" href="@Url.Action("ConfigurarJuego", "Juego")">Jugar</a>
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="inicio-container" style="text-align:center; margin-top:40px;">
+    <img src="~/images/logo-juego.png" alt="Logo del Juego" style="max-width:200px; margin-bottom:20px;" />
+
+    <h1>Bienvenido al Juego de Números 🎲</h1>
+    <p>Probá tu suerte e inteligencia adivinando la combinación correcta.</p>
+
+    <a asp-controller="Home" asp-action="ConfigurarJuego" class="btn btn-primary" style="padding:10px 20px; font-size:18px; border-radius:8px; margin-top:20px; display:inline-block;">
+        ¡Comenzar a Jugar!
+    </a>
 </div>
