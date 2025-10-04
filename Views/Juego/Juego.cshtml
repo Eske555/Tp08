@@ -1,4 +1,5 @@
 <h2>Juego</h2>
+<div style="color:red;">Debug: Pregunta actual Id=@ViewBag.Pregunta?.IdPregunta, Total respuestas=@(ViewBag.Respuestas != null ? ((List<Respuestas>)ViewBag.Respuestas).Count : 0)</div>
 <p>Jugador: @ViewBag.Username</p>
 <p>Puntaje: @ViewBag.Puntaje</p>
 <p>Pregunta @ViewBag.NumPregunta: @ViewBag.Pregunta.Enunciado</p>
@@ -9,15 +10,12 @@
 }
 
 <form asp-action="VerificarRespuesta" method="post" id="formJuego">
-    @foreach (var r in ViewBag.Pregunta.Respuestas)
+    @foreach (var r in ViewBag.Respuestas)
     {
-        <button type="submit" name="respuestaId" value="@r.Id">
-            @r.Texto
-            @if (!string.IsNullOrEmpty(r.Imagen))
-            {
-                <img src="@r.Imagen" alt="Respuesta img" />
-            }
+        <button type="submit" name="idRespuesta" value="@r.IdRespuesta">
+            @r.Contenido
         </button>
     }
+    <input type="hidden" name="idPregunta" value="@ViewBag.Pregunta.IdPregunta" />
 </form>
 <div id="resultado"></div>

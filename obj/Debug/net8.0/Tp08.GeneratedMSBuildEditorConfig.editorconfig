@@ -9,55 +9,55 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Tp08
 build_property.RootNamespace = Tp08
-build_property.ProjectDir = C:\Users\49374119\Downloads\Tp08\
+build_property.ProjectDir = C:\Users\nacho\Downloads\Tp08\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\49374119\Downloads\Tp08
+build_property.MSBuildProjectDirectory = C:\Users\nacho\Downloads\Tp08
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Home/ConfigurarJuego.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25maWd1cmFySnVlZ28uY3NodG1s
+[C:/Users/nacho/Downloads/Tp08/Views/Juego/ConfigurarJuego.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cQ29uZmlndXJhckp1ZWdvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Home/Fin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaW4uY3NodG1s
+[C:/Users/nacho/Downloads/Tp08/Views/Juego/Fin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cRmluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/nacho/Downloads/Tp08/Views/Juego/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Home/Juego.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxKdWVnby5jc2h0bWw=
+[C:/Users/nacho/Downloads/Tp08/Views/Juego/Juego.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cSnVlZ28uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/nacho/Downloads/Tp08/Views/Juego/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Home/Respuesta.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNwdWVzdGEuY3NodG1s
+[C:/Users/nacho/Downloads/Tp08/Views/Juego/Respuesta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cUmVzcHVlc3RhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Shared/Error.cshtml]
+[C:/Users/nacho/Downloads/Tp08/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/nacho/Downloads/Tp08/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/_ViewImports.cshtml]
+[C:/Users/nacho/Downloads/Tp08/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/_ViewStart.cshtml]
+[C:/Users/nacho/Downloads/Tp08/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/49374119/Downloads/Tp08/Views/Shared/_Layout.cshtml]
+[C:/Users/nacho/Downloads/Tp08/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-x4u15z92so

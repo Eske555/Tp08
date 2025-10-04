@@ -50,16 +50,16 @@ public class JuegoController : Controller
         if (string.IsNullOrWhiteSpace(username))
         {
             TempData["Error"] = "Debe indicar un nombre de usuario.";
-            return RedirectToAction("ConfigurarJuego");
+            return RedirectToAction("ConfigurarJuego", "Juego");
         }
 
-        HttpContext.Session.SetString(SessionUsernameKey, username);
+    HttpContext.Session.SetString(SessionUsernameKey, username);
 
-        var juego = GetJuego(username);
-        juego.CargarPartida(username, dificultad, categoria);
-        SaveJuego(username, juego);
+    var juego = new Juego();
+    juego.CargarPartida(username, dificultad, categoria);
+    SaveJuego(username, juego);
 
-        return RedirectToAction("Jugar");
+    return RedirectToAction("Jugar", "Juego");
     }
 
     public IActionResult Jugar()
@@ -69,28 +69,31 @@ public class JuegoController : Controller
         {
 
             TempData["Error"] = "No hay una partida iniciada. Por favor configure el juego.";
-            return RedirectToAction("ConfigurarJuego");
+            return RedirectToAction("ConfigurarJuego", "Juego");
         }
 
         var juego = GetJuego(username);
-
         var pregunta = juego.ObtenerProximaPregunta();
-
         if (pregunta == null)
         {
             ViewBag.Username = username;
             ViewBag.Puntaje = juego.GetPuntaje();
+
             return View("Fin");
         }
-
+        var respuestas = juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+        if (respuestas == null || respuestas.Count == 0)
+        {
+            juego.VerificarRespuesta(-1); 
+            SaveJuego(username, juego);
+            return RedirectToAction("Jugar", "Juego");
+        }
         ViewBag.Username = username;
         ViewBag.Puntaje = juego.GetPuntaje();
         ViewBag.NumPregunta = juego.GetNumeroPregunta();
         ViewBag.Pregunta = pregunta;
-        ViewBag.Respuestas = juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
-
+        ViewBag.Respuestas = respuestas;
         SaveJuego(username, juego);
-
         return View("Juego");
     }
 
@@ -102,23 +105,12 @@ public class JuegoController : Controller
         if (string.IsNullOrEmpty(username))
         {
             TempData["Error"] = "Partida no encontrada. Volvé a configurar el juego.";
-            return RedirectToAction("ConfigurarJuego");
+            return RedirectToAction("ConfigurarJuego", "Juego");
         }
 
         var juego = GetJuego(username);
-        bool esCorrecta = juego.VerificarRespuesta(idRespuesta);
-
-        var respuestas = juego.ObtenerProximasRespuestas(idPregunta);
-        var respuestaCorrecta = respuestas.FirstOrDefault(r => r.Correcta);
-        ViewBag.EsCorrecta = esCorrecta;
-        ViewBag.RespuestaCorrecta = respuestaCorrecta;
-        ViewBag.Respuestas = respuestas;
-        ViewBag.Username = username;
-        ViewBag.Puntaje = juego.GetPuntaje();
-        ViewBag.NumPregunta = juego.GetNumeroPregunta();
-
+        juego.VerificarRespuesta(idRespuesta);
         SaveJuego(username, juego);
-
-        return View("Respuesta");
+        return RedirectToAction("Jugar", "Juego");
     }
 }

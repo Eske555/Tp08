@@ -9,8 +9,10 @@
     <label>Dificultad:</label>
     <select name="dificultad" id="dificultad" required>
         <option value="-1">Todas</option>
-        <option value="1">Fácil</option>
-        <option value="2">Difícil</option>
+        @foreach (var dif in ViewBag.Dificultades)
+        {
+            <option value="@dif.IdDificultad">@dif.Nombre</option>
+        }
     </select>
 
     <br />
@@ -18,8 +20,10 @@
     <label>Categoría:</label>
     <select name="categoria" id="categoria" required>
         <option value="-1">Todas</option>
-        <option value="1">Historia</option>
-        <option value="2">Ciencia</option>
+        @foreach (var cat in ViewBag.Categorias)
+        {
+            <option value="@cat.IdCategoria">@cat.Nombre</option>
+        }
     </select>
 
     <br />
