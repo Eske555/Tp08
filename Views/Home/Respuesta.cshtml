@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<body>
+    <div class="text-center">
+        @if (ViewBag.esCorrecta == true)
+        {
+            <h2 class="msg-correcto">Correcto</h2>
+        }
+        else
+        {
+            <h2 class="msg-incorrecto">Incorrecto</h2>
+        }
+        <a asp-action="Jugar" class="btn btn-primary mt-3">Siguiente Pregunta</a>
+    </div>
+    
+</body>

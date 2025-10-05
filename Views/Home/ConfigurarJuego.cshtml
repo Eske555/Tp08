@@ -1,0 +1,51 @@
+<body class="configurarJuego">
+@{
+    ViewData["Title"] = "Configurar Juego";
+}
+
+<div class="configuracion">
+    <h2>Preparar partida</h2>
+
+    <form action='@Url.Action("Comenzar")' method="POST" id="Configuracion">
+
+        <div class="opciones">
+            <div class="dificultad">
+                <h3>Dificultad</h3>
+                <div>
+                    <input type="radio" name="dificultad" value="-1" id="dif_todas" required />
+                    <label for="dif_todas">Todas las dificultades</label>
+                </div>
+                @foreach(var dificultad in ViewBag.Dificultades)
+                {
+                    <div>
+                        <input type="radio" name="dificultad" value="@dificultad.IdDificultad" id="dif_@dificultad.IdDificultad" required />
+                        <label for="dif_@dificultad.IdDificultad">@dificultad.Nombre</label>
+                    </div>
+                }
+            </div>
+
+            <div class="categoria">
+                <h3>Categoría</h3>
+                <div>
+                    <input type="radio" name="categoria" value="-1" id="cat_todas" required />
+                    <label for="cat_todas">Todas las categorías</label>
+                </div>
+                @foreach(var categoria in ViewBag.Categorias)
+                {
+                    <div>
+                        <input type="radio" name="categoria" value="@categoria.IdCategoria" id="cat_@categoria.IdCategoria" required />
+                        <label for="cat_@categoria.IdCategoria">@categoria.Nombre</label>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div>
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" name="username" required id="username" placeholder="Ingrese su username" />
+        </div>
+
+        <button class="boton" type="submit">Comenzar Juego</button>
+    </form>
+</div>
+</body>

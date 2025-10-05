@@ -1,0 +1,16 @@
+<body class="fin-body">
+@{
+    ViewData["Title"] = "Fin del Juego";
+    string username = ViewBag.Username;
+    int puntaje = ViewBag.Puntaje;
+}
+
+<div class="text-center fin-container">
+    <h1>Partida finalizada</h1>
+    <h4>No hay más preguntas</h4>
+    <h3>@username</h3>
+    <p>Puntaje final: <strong>@puntaje</strong></p>
+
+    <a asp-action="ConfigurarJuego" class="btn btn-success mt-3">Volver a jugar</a>
+</div>
+</body>

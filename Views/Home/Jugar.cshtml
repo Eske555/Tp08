@@ -1,0 +1,28 @@
+<body class="bodyJuego">
+    @{
+        ViewData["Title"] = "Ronda en curso";
+    }
+
+   <div class="puntaje-fijo">
+    Usuario: @ViewBag.user | Puntuación: @(ViewBag.puntuaje ?? 0)
+   </div>
+
+
+
+    <div class="text-center juego-container">
+        <h3>@ViewBag.preguntaActual.Enunciado</h3>
+        <form action='@Url.Action("VerificarRespuesta")' method="POST">
+            <input type="hidden" name="idPregunta" value="@ViewBag.preguntaActual.IdPregunta" />
+            @foreach(var respuesta in ViewBag.proximasRespuestas)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="idRespuesta" value="@respuesta.IdRespuesta" id="respuesta_@respuesta.IdRespuesta" required>
+                    <label class="form-check-label" for="respuesta_@respuesta.IdRespuesta">
+                        @respuesta.Contenido
+                    </label>
+                </div>
+            }
+            <button type="submit" class="btn btn-primary mt-3">Responder</button>
+        </form>
+    </div>
+</body>
